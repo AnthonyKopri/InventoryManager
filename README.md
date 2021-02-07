@@ -64,34 +64,44 @@ This is a GameObject based manager. It keeps track of the GameObjects and re-sum
    - Clears the Dictionary `inventory`.
   ---
 8. **`List<GameObject> GetItem(string name, int amount, bool remove)`**
-
+   - Returns a List of GameObjects in `inventory[name]` starting from index 0 to index `amount - 1`.
+   - If the list is empty or contains less items than `amount` specified, returns `null`.
+   - If the key `name` does not exist in the inventory, returns `null`.
+   - If `remove` is set to true, items that are included in the returning list, are deleted from the inventory. This function makes it so if the script uses this function, it will not let duplicate items remain in the inventory.
   ---
 9. **`List<GameObject> GetItem(string name, int amount)`**
-
+   - Overrides GetItem(string name, int amount, bool remove) and returns GetItem(string name, int amount, true).
   ---
 10. **`GameObject GetItem(string name, bool remove)`**
-
+    - Returns the GameObject with index 0 in the List `inventory[name]`.
+    - If the list is empty, returns `null`.
+    - If the key `name` does not exist in inventory, returns `null`.
+    - If `remove` is set to true, item that is returned, is deleted from the inventory. This function makes it so if the script uses this function, it will not let duplicate items remain in the inventory.
   ---
 11. **`GameObject GetItem(string name)`**
-
+    - Overrides GetItem(string name, bool remove) and returns GetItem(string name, true).
   ---
 12. **`List<GameObject> GetAll(string name, bool remove)`**
-
+    - Returns a List containing all GameObjects in `inventory[item]`.
+    - If the list is empty, returns `null`.
+    - If the key `name` does not exist in inventory, returns `null`.
+    - If `remove` is set to true, the list stored in inventory is cleared. This function makes it so if the script uses this function, it will not let duplicate items remain in the inventory.
   ---
 13. **`List<GameObject> GetAll(string name)`**
-
+    - Overrides GetAll(string name, bool remove) and returns GetAll(string name, true).
   ---
 14. **`List<GameObject> GetEverything(bool remove)`**
-
+    - Returns a List of every GameObject stored in inventory.
+    - If 'remove' is set to true, then the inventory dictionary is cleared.
   ---
 15. **`List<GameObject> GetEverything()`**
-
+    - Overrides GetEverything(bool remove) and returns GetEverything(true).
   ---
 16. **`int GetAmount(string name)`**
-
+    - Returns the amount of GameObjects stored in the `inventory[name]`.
   ---
 17. **`Dictionary<string,List<GameObject>> GetInventory()`**
-
+    - Returns the inventory dictionary as a whole.
 ---
 ---
-### More syntax and function info will be added.
+### If you have any suggestions, please let me know.
